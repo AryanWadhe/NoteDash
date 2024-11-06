@@ -5,6 +5,23 @@ app = Flask(__name__)
 
 notes = []
 
+@app.route('/')
+def index():
+    load_notes() # Load notes from file
+    return render_template('index.html', notes=notes)
+
+@app.route('/add_note', methods=['POST'])
+def add_note():
+    # Get the note text and color from the form submission
+    note_text = request.form['note_text']
+    note_color = request.form['note_color']
+    # Add the note to the list of notes
+    notes.append({'text': note_text, 'color': note_color})
+    save_notes() # Save notes to file
+    return index()
+
+@app.route('/delete_note/<int:note_id>', methods=['GET', 'POST'])
+
 def delete_note(note_id):
     if request.method == 'POST':
         # Delete the note with the given ID from the list of notes
