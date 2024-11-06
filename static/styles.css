@@ -1,0 +1,176 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+}
+
+.header {
+    background-color: #333;
+    color: #ffffff;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin: 0;
+    font-weight: bold;
+    color: #f0f8ff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.header h3 {
+    font-size: 1.3em;
+    font-weight: 300;
+    color: #dcdcdc;
+    margin-top: 10px;
+}
+
+.note-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 1600px;
+    margin: 20px auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.note {
+    width: calc(20% - 20px);
+    height: 300px;
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 15px;
+    overflow: auto;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.note:hover {
+    transform: scale(1.02);
+}
+
+.yellow {
+    background-color: #feff9c;
+}
+
+.lightblue {
+    background-color: #add8e6;
+}
+
+.pink {
+    background-color: #ffb6c1;
+}
+
+.lightgreen {
+    background-color: #98fb98;
+}
+
+.orange {
+    background-color: #ffcc99;
+}
+
+.purple {
+    background-color: #d1c4e9;
+}
+
+.gray {
+    background-color: #e0e0e0;
+}
+
+/* Style for the form elements */
+form {
+    margin: 15px 0;
+}
+
+textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+/* Fancy select style similar to the button */
+select {
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #556cd6;
+    border: none;
+    border-radius: 5px;
+    margin: 0 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    appearance: none;
+    /* Removes default arrow in most browsers */
+}
+
+select:hover {
+    background-color: #4050b5;
+}
+
+select:focus {
+    outline: none;
+    background-color: #31429d;
+}
+
+.add-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.add-button:active {
+    background-color: #1e7e34;
+    transform: translateY(0);
+}
+
+.delete-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+.delete-button:active {
+    background-color: #bd2130;
+    transform: translateY(0);
+}
