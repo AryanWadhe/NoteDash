@@ -70,7 +70,16 @@
         <h3>Start creating new Notes:</h3>
         <form action="/add_note" method="post">
             
-            <input type="text" name="note_text" placeholder="Take a note..." style="color: grey; width: 400px">
+            <!-- <input type="text" name="note_text" placeholder="Take a note..." style="color: grey; width: 400px"> -->
+
+            <textarea 
+                name="note_text" 
+                placeholder="Take a note..." 
+                rows="5"         
+                cols="50"        
+                style="color: grey; width: 400px; resize: vertical;" 
+            ></textarea>
+
             <select name="note_color">
                 
                 <option value="yellow">Yellow</option>
