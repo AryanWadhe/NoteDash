@@ -6,14 +6,16 @@
         
         body {
             margin: 0;
-            padding:0 ;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
         }
 
         .header {
-            background-color: #f2f2f2;
+            background-color: #f8cd61;
             padding: 20px;
             text-align: center;
+            color: white;
         }
 
         .note-container {
@@ -21,7 +23,7 @@
             flex-wrap: wrap;
             justify-content: flex-start;
             max-width: 1600px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             box-sizing: border-box;
         }
@@ -30,23 +32,43 @@
             width: calc(20% - 20px);
             height: 300px;
             border: 1px solid #ccc;
-            margin: 0 10px 30px 10px;
-            padding: 10px;
+            margin: 10px;
+            padding: 15px;
             overflow: auto;
             box-sizing: border-box;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            color: #333;
+            text-align: center;
+            transition: transform 0.2s ease;
         }
 
+        .note:hover {
+            transform: scale(1.02);
+        }
+
+        /* Note colors */
         .yellow {
             background-color: #feff9c;
         }
 
         .lightblue {
-            background-color: lightblue;
+            background-color: #add8e6;
         }
 
         .pink {
-            background-color: pink;
+            background-color: #ffb6c1;
         }
+
+        .lightgreen {
+            background-color: #98fb98;
+        }
+
+        .orange {
+            background-color: #ffcc99;
+        }
+
         .purple {
             background-color: #d1c4e9;
         }
@@ -54,20 +76,54 @@
         .gray {
             background-color: #e0e0e0;
         }
-        .lightgreen {
-            background-color: lightgreen;
+
+        /* Style for the form elements */
+        form {
+            margin: 15px 0;
         }
 
-        .orange {
-            background-color: #ffcc99;
+        textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: vertical;
         }
 
-        button {
-            padding: 10px 20px;
+        /* Fancy select style similar to the button */
+        select {
+            padding: 10px 15px;
             font-size: 16px;
             font-weight: bold;
             color: white;
             background-color: #556cd6;
+            border: none;
+            border-radius: 5px;
+            margin: 0 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            appearance: none; /* Removes default arrow in most browsers */
+        }
+
+        select:hover {
+            background-color: #4050b5;
+        }
+
+        select:focus {
+            outline: none;
+            background-color: #31429d;
+        }
+
+        .add-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: #28a745; 
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -75,13 +131,36 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        button:hover {
-            background-color: #4050b5;
+        .add-button:hover {
+            background-color: #218838;
             transform: translateY(-2px);
         }
 
-        button:active {
-            background-color: #31429d;
+        .add-button:active {
+            background-color: #1e7e34;
+            transform: translateY(0);
+        }
+
+        .delete-button {
+            padding: 8px 16px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            background-color: #dc3545; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .delete-button:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
+        }
+
+        .delete-button:active {
+            background-color: #bd2130;
             transform: translateY(0);
         }
 
@@ -93,27 +172,24 @@
         <h3>Start creating new Notes:</h3>
         <form action="/add_note" method="post">
             
-            <!-- <input type="text" name="note_text" placeholder="Take a note..." style="color: grey; width: 400px"> -->
-
             <textarea 
                 name="note_text" 
                 placeholder="Take a note..." 
                 rows="5"         
                 cols="50"        
-                style="color: grey; width: 400px; resize: vertical;" 
+                style="color: grey;"
             ></textarea>
 
             <select name="note_color">
-                
                 <option value="yellow">Yellow</option>
                 <option value="lightblue">Blue</option>
                 <option value="pink">Pink</option>
+                <option value="lightgreen">Green</option>
+                <!-- <option value="orange">Orange</option> -->
                 <option value="purple">Purple</option>
                 <option value="gray">Gray</option>
-                <option value="lightgreen">Green</option>
-                <option value="orange">Orange</option>
             </select>
-            <button type="submit">Add</button>
+            <button type="submit" class="add-button">Add</button>
         </form>
     </div>
 
@@ -124,7 +200,7 @@
             <p>{{ note.text }}</p>
             
             <form action="/delete_note/{{ loop.index0 }}" method="post">
-                <button type="submit">Delete</button>
+                <button type="submit" class="delete-button">Delete</button>
             </form>
         </div>
         {% endfor %}
